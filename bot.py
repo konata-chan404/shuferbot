@@ -16,6 +16,11 @@ async def someone(ctx):
 
 @bot.command()
 async def shufersal(ctx, product_id: int):
-    await ctx.send(file=discord.File(shufer.get_gif(product_id), f"{product_id}.gif"))
+    gif = shufer.get_gif(product_id)
+
+    if gif:
+        await ctx.send(file=discord.File(shufer.get_gif(product_id), f"{product_id}.gif"))
+    else:
+        await ctx.send("Error has occured!")
 
 bot.run(BOT_TOKEN)
