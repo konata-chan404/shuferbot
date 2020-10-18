@@ -18,13 +18,13 @@ async def someone(ctx):
 
 @bot.command()
 async def shufersal(ctx, *args):
-    product_id = int(args[0])
     speed = 1.0
     reverse = False
     time = False
 
     try:
         arg_ptr = 0
+        product_id = int(args[0])
         while arg_ptr < len(args)-1:
             arg_ptr += 1
             arg = args[arg_ptr]
@@ -39,9 +39,11 @@ async def shufersal(ctx, *args):
             elif arg == '-t':
                 time = True
             else:
-                await ctx.send("Wrong Arguments (remind me to write a usuage message)!")
+                await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-v SPEED] [-r] [-t]")
+                return
     except Exception as e:
-        await ctx.send("Wrong Arguments (remind me to write a usuage message)!")
+        await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-v SPEED] [-r] [-t]")
+        return
 
     if time:    
         startTime = datetime.now()
