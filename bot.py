@@ -12,6 +12,29 @@ bot = commands.Bot(command_prefix='?', description='this bot is very swag')
 async def on_ready():
     print(f'{bot.user.name} is ready!')
 
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if message.content.endswith('מה'):
+        await message.channel.send('פליץ')
+
+    elif message.content.endswith(' כן') or message.content.endswith(' קן'):
+        await message.channel.send('גרו')
+
+    elif message.content.endswith('לא'):
+     await message.channel.send('זית')
+
+    elif message.content.endswith('ma'):
+        await message.channel.send("flitz")
+
+    if "ממני" in message.content:
+        await message.channel.send('מי זה מני?')
+    
+
+    await bot.process_commands(message)
+
 @bot.command()
 async def someone(ctx):
     await ctx.send(random.choice(ctx.channel.members).mention)
