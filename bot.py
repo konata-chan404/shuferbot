@@ -6,7 +6,7 @@ from datetime import datetime
 import shufer
 import puns
 
-BOT_TOKEN = ''
+BOT_TOKEN = '
 bot = commands.Bot(command_prefix='?', description='this bot is very swag')
 
 @bot.event
@@ -85,7 +85,7 @@ async def shufersal(ctx, *args):
                 arg = float(args[arg_ptr])
                 reverse = arg < 0
                 speed = abs(arg)
-            if arg == '-m':
+            elif arg == '-m':
                 arg_ptr += 1
                 mode = args[arg_ptr]
             elif arg == '-r':
@@ -93,10 +93,11 @@ async def shufersal(ctx, *args):
             elif arg == '-t':
                 time = True
             else:
-                await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-v SPEED] [-r] [-t]")
+                await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-s SPEED] [-r] [-t] [-m MODE]")
                 return
     except Exception as e:
-        await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-v SPEED] [-r] [-t]")
+        print(e)
+        await ctx.send("Wrong Arguments! Usage: ?shufersal ID [-s SPEED] [-r] [-t] [-m MODE]")
         return
 
     if time:    
