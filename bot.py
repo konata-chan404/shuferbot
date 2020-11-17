@@ -6,7 +6,7 @@ from datetime import datetime
 import shufer
 import puns
 
-BOT_TOKEN = '
+BOT_TOKEN = ''
 bot = commands.Bot(command_prefix='?', description='this bot is very swag')
 
 @bot.event
