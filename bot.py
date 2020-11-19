@@ -18,25 +18,27 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    if message.content.endswith('מה'):
+    message_content = ''.join([i for i in message.content if i.isalpha()])
+
+    if message_content.endswith('מה'):
         await message.channel.send('פליץ')
 
-    elif message.content.endswith(' כן') or message.content.endswith(' קן'):
+    elif message_content.endswith('כן') or message_content.endswith('קן'):
         await message.channel.send('גרו')
 
-    elif message.content.endswith('לא'):
+    elif message_content.endswith('לא'):
      await message.channel.send('זית')
 
-    elif message.content.endswith('מי'):
+    elif message_content.endswith('מי'):
      await message.channel.send('קרונזיה')
 
-    elif message.content.endswith('ma'):
+    elif message_content.endswith('ma'):
         await message.channel.send("flitz")
 
-    elif message.content.endswith('lo'):
+    elif message_content.endswith('lo'):
         await message.channel.send("zit")
 
-    if "ממני" in message.content:
+    if "ממני" in message_content:
         await message.channel.send('מי זה מני?')
     
 
