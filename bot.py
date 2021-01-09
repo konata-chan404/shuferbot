@@ -5,8 +5,9 @@ from datetime import datetime
 
 import shufer
 import puns
+import funny
 
-BOT_TOKEN = ''
+BOT_TOKEN = 'NTY1MjIxMjA0ODM1ODI3NzQz.XKzRRA.LUD7tmxOzQBkSNo_MttCD2MiKJk'
 bot = commands.Bot(command_prefix='?', description='this bot is very swag')
 
 @bot.event
@@ -149,5 +150,23 @@ async def merge(ctx, *args):
 
         await ctx.send(f"{f'{original_words[0]} + {original_words[1]} = ' if verbose else ''}{random.choice(new_words)}")
 
+
+@bot.command()
+async def kakadu(ctx):
+    with open("messages.txt", "w+", encoding="utf-8") as f:
+        for channel in ctx.guild.text_channels:
+            async for message in channel.history(limit=None):
+                if message.author.id == 361859906061729797:
+                    f.write(message.content + "\n")
+
+
+@bot.command()
+async def le_funny(ctx, *args):
+    le_text = " ".join(args)
+    if not le_text.isascii():
+        le_text = le_text[::-1]
+    le_gif = discord.File(funny.get_funny_thing(le_text), f"{args}.gif")
+    
+    await ctx.send(file=le_gif)
 
 bot.run(BOT_TOKEN)
