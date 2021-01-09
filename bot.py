@@ -7,7 +7,7 @@ import shufer
 import puns
 import funny
 
-BOT_TOKEN = 'NTY1MjIxMjA0ODM1ODI3NzQz.XKzRRA.LUD7tmxOzQBkSNo_MttCD2MiKJk'
+BOT_TOKEN = ''
 bot = commands.Bot(command_prefix='?', description='this bot is very swag')
 
 @bot.event
